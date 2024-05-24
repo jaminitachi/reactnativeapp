@@ -1,35 +1,52 @@
 import React from 'react';
-import { View } from 'react-native';
+import {View} from 'react-native';
 import { Badge } from './Badge';
-import { Icon } from './Icon';
+import { Icon } from './Icons';
 
-import propTypes from 'prop-types';
+// export class TabIcon extends React.Component{
 
+//     render(){
+//         if(this.props.visibleBadge){
+//             return (
+//                 <View>
+//                     <Badge fontSize={10}>
+//                         <Icon 
+//                             name={this.props.iconName} 
+//                             size={20} 
+//                             color={'black'}/>
+//                     </Badge>
+    
+//                 </View>
+//             )
+//         }
 
-export class TabIcon extends React.Component { 
-    static defaultProps = {
-        visibleBadge:false,
-    }
-    render(){
-        if(this.props.visibleBadge){
-            return(
-                <View style={{padding:4,}}>
-                    <Badge>
-                        <Icon iconName={this.props.iconName} iconSize={20} iconColor={this.props.iconColor}/>
-                    </Badge>
-                </View>
-            )
-        }
+//         return (
+//             <View>
+//                 <Icon 
+//                     name={this.props.iconName} 
+//                     size={20} 
+//                     color={'black'}/>
+//             </View>
+//         )
+//     }
+// }
 
+export const TabIcon = (props)=>{
+    if(props.visibleBadge){
         return (
-            <View style={{padding:4,}}>
-                <Icon iconName={this.props.iconName} iconSize={20} iconColor={this.props.iconColor} />
-            </View>
+            <Badge fontSize={10}>
+                <Icon 
+                    name={props.iconName} 
+                    size={20} 
+                    color={props.iconColor}/>
+            </Badge>
         )
     }
-}
 
-TabIcon.propTypes = {
-    iconName: propTypes.string.isRequired,
-    visibleBadge: propTypes.bool
+    return (
+        <Icon 
+            name={props.iconName} 
+            size={20} 
+            color={props.iconColor}/>
+    )
 }
