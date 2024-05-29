@@ -1,21 +1,15 @@
-import React from 'react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { LinkStackNavigation } from './LinkStackNavigation';
-import { AddLinkScreen } from '../screens/AddLinkScreen';
+import React from "react";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NewsTabNavigation } from "./NewsTabNavigation";
+import { NewsDetailScreen } from "../screens/NewsDetailScreen";
 
 const Stack = createNativeStackNavigator();
 
-export const RootNavigation = ()=>{
-
-    return (
-        <Stack.Navigator 
-            initialRouteName='LinkStack'
-            screenOptions={{
-                presentation:'containedModal',
-                headerShown:false
-            }} >
-            <Stack.Screen name='LinkStack' component={LinkStackNavigation}></Stack.Screen>
-            <Stack.Screen name='AddLink' component={AddLinkScreen}></Stack.Screen>
-        </Stack.Navigator>
-    )
-}
+export const RootNavigation = () => {
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="NewsTab" component={NewsTabNavigation} />
+      <Stack.Screen name="NewsDetail" component={NewsDetailScreen} />
+    </Stack.Navigator>
+  );
+};
